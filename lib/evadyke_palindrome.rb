@@ -1,6 +1,12 @@
 require "evadyke_palindrome/version"
+class String
+  def palindrome?
+    processed_content == processed_content.reverse
+  end
 
-module EvadykePalindrome
-  class Error < StandardError; end
-  # Your code goes here...
+  private
+    def processed_content
+     self.scan(/[a-z]/i).join.downcase
+    end
 end
+
